@@ -5,7 +5,7 @@ Introduction
 Resize picasa’s photo by url: including a php file and a Codenigter library
 
 **File included**
-               <ul>
+               <ol>
                 <li>Codenigter   (This folder included the library for codenigter)
                     <ol>
                     <li>Application
@@ -17,6 +17,7 @@ Resize picasa’s photo by url: including a php file and a Codenigter library
                             <ul><li>picasa_demo.php</li></ul></li></ul>
                     </li>
                     </ul>
+                </li>
                 <li>picasa_demo.php</li>
                 </ol>
 
@@ -36,13 +37,14 @@ $imgsize  = new size of the image you want.
 For an example, you use https://lh3.googleusercontent.com/-0xxGDL4nB5k/U6ORIvopgsI/AAAAAAAABJY/5VXqVws8a-4/s30/computer.png as the first paras
 
 Code:
-<pre><?php 
+<pre>
+&lt;?php 
 $url = “https://lh3.googleusercontent.com/-0xxGDL4nB5k/U6ORIvopgsI/AAAAAAAABJY/5VXqVws8a-4/s30/computer.png”;
-Echo “<h3>original Image</h3>”;
-echo “<img src='”.$url.”’ alt=’’ />”;
-Echo “<h3>Image with new size</h3>”;
-echo “<img src='”.resize_image($url, '200').”’ alt=’’ />”;
-?>
+echo “&lt;h3&gt;original Image&lt;/h3&gt;”;
+echo “&lt;img src='”.$url.”’ alt=’’ /&gt;”;
+echo “&lt;h3&gt;Image with new size&lt;/h3&gt;”;
+echo “&lt;img src='”.resize_image($url, '200').”’ alt=’’ /&gt;”;
+?&gt;
 </pre>
 
 <hr />
@@ -68,7 +70,7 @@ $url = "https://lh3.googleusercontent.com/-0xxGDL4nB5k/U6ORIvopgsI/AAAAAAAABJY/5
 </pre>
 Or 
 <pre>
-$this->picasa_resize->resize_image("https://lh4.googleusercontent.com/-dAejSnYrNw8/U6KpRsDbkNI/AAAAAAAAAyo/FetX2d5CN_A/s0/53a2a944b1842.jpg", "400");
+$this->picasa_resize->resize_image("https:&#47;&#47;lh4.googleusercontent.com/-dAejSnYrNw8/U6KpRsDbkNI/AAAAAAAAAyo/FetX2d5CN_A/s0/53a2a944b1842.jpg", "400");
 </pre>
 
 Show in view:
@@ -79,6 +81,7 @@ $this->load->view('picasa_demo', $data);
 Detail and demo
 -----------------------
 You can visit the demo site:
+<br />
 http://tool.soyosolution.com/php-resize-picasa-photo-by-url/
 
 
