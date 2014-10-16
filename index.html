@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Php-resize-picasa-photo-by-url by soyosolution</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Php-resize-picasa-photo-by-url</h1>
+        <p>Resize picasa’s photo by url: including a php file and a Codenigter library</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/soyosolution/PHP-resize-picasa-photo-by-url" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/soyosolution/PHP-resize-picasa-photo-by-url/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/soyosolution/PHP-resize-picasa-photo-by-url/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a name="php-resize-picasa-photo-by-url" class="anchor" href="#php-resize-picasa-photo-by-url"><span class="octicon octicon-link"></span></a>PHP-resize-picasa-photo-by-url</h1>
+
+<h2>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>Resize picasa’s photo by url: including a php file and a Codenigter library</p>
+
+<p><strong>File included</strong>
+               </p><ol>
+                <li>Codenigter   (This folder included the library for codenigter)
+                    <ol>
+                    <li>Application
+                        <ul><li>Controllers
+                            <ul><li>picasa.php</li></ul>
+</li></ul>
+                        <ul><li>Libraries
+                            <ul><li>picasa_resize.php</li></ul>
+</li></ul>
+                        <ul><li>Views
+                            <ul><li>picasa_demo.php</li></ul>
+</li></ul>
+                    </li>
+                    
+                </ol>
+</li>
+                <li>picasa_demo.php</li>
+                </ol>
+
+<p>+This folder named “Codenigter” included the library for codenigter, you could just copy it to your CI root and run it</p>
+
+<ul>
+<li>Picasa_demo.php placing at root including all function, you can copy that to your localhost and run it without any other files. </li>
+</ul>
+
+<h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<h2>
+<a name="for-php-function-" class="anchor" href="#for-php-function-"><span class="octicon octicon-link"></span></a>For php function: </h2>
+
+<p>You can just copy code in picasa_demo.php, and then call the function resize_image() to resize the images</p>
+
+<pre>Function resize_image($url, $imgsize) {}</pre>
+
+<p>$url      = url of your image you uploaded to picasa.
+$imgsize  = new size of the image you want.</p>
+
+<p>For an example, you use <a href="https://lh3.googleusercontent.com/-0xxGDL4nB5k/U6ORIvopgsI/AAAAAAAABJY/5VXqVws8a-4/s30/computer.png">https://lh3.googleusercontent.com/-0xxGDL4nB5k/U6ORIvopgsI/AAAAAAAABJY/5VXqVws8a-4/s30/computer.png</a> as the first paras</p>
+
+<p>Code:</p>
+
+<pre>
+&lt;?php 
+$url = “https://lh3.googleusercontent.com/-0xxGDL4nB5k/U6ORIvopgsI/AAAAAAAABJY/5VXqVws8a-4/s30/computer.png”;
+echo “&lt;h3&gt;original Image&lt;/h3&gt;”;
+echo “&lt;img src='”.$url.”’ alt=’’ /&gt;”;
+echo “&lt;h3&gt;Image with new size&lt;/h3&gt;”;
+echo “&lt;img src='”.resize_image($url, '200').”’ alt=’’ /&gt;”;
+?&gt;
+</pre>
+
+<hr>
+
+<h2>
+<a name="if-you-are-using-codenigter" class="anchor" href="#if-you-are-using-codenigter"><span class="octicon octicon-link"></span></a>If you are using codenigter</h2>
+
+<p>copy the “picasa_resize.php” to</p>
+
+<pre>
+File in github path   : Codenigter/application/libraries/picasa_resize.php 
+Your Codenigter path : /application/libraries/picasa_resize.php
+</pre>
+
+<p>And then import the Codenigter url helper in your controller:</p>
+
+<pre>$this-&gt;load-&gt;helper('url'); </pre>
+
+<p>Load the libraries your downloaded:</p>
+
+<pre>$this-&gt;load-&gt;library('picasa_resize'); </pre>
+
+<p>Pass the parameters to library function:</p>
+
+<pre>
+$url = "https://lh3.googleusercontent.com/-0xxGDL4nB5k/U6ORIvopgsI/AAAAAAAABJY/5VXqVws8a-4/s512/computer.png";
+        $imgsize = "100";
+        $data['oldurl'] = $url;
+        $data['newurl'] = $this-&gt;picasa_resize-&gt;resize_image($url, $imgsize);
+</pre>
+
+<p>Or </p>
+
+<pre>
+$this-&gt;picasa_resize-&gt;resize_image("https://lh4.googleusercontent.com/-dAejSnYrNw8/U6KpRsDbkNI/AAAAAAAAAyo/FetX2d5CN_A/s0/53a2a944b1842.jpg", "400");
+</pre>
+
+<p>Show in view:</p>
+
+<pre>
+$this-&gt;load-&gt;view('picasa_demo', $data);
+</pre>
+
+<h2>
+<a name="detail-and-demo" class="anchor" href="#detail-and-demo"><span class="octicon octicon-link"></span></a>Detail and demo</h2>
+
+<p>You can visit the demo site:
+<br>
+<a href="http://tool.soyosolution.com/php-resize-picasa-photo-by-url/">http://tool.soyosolution.com/php-resize-picasa-photo-by-url/</a></p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/soyosolution">soyosolution</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
